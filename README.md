@@ -16,7 +16,7 @@ ife小薇学院任务一的代码
   <li><a href="#text4">文章三</a></li>
  </ul>
 </div>
-<div>
+<div id="#text1">
  <h2>文章一一级标题</h2>
  <h3>文章一二标题</h3>
  <p>作者&nbsp发表时间</p>
@@ -27,7 +27,7 @@ ife小薇学院任务一的代码
  是谁记得当年<b>大闹天宫</b>还用说我喝醉犯了每个规条 从不会改过<a href="http://ife.baidu.com/">双眼里</a>只有自己有些恶意有些暴力有点着急惹了报应如来随指山下后现在我有一千年修炼别想破我的阵七十二变什么凡人或灵魂或妖孽</p>
 </div>
  
-<div>
+<div id="#text2">
  <h2>文章二一级标题</h2>
  <h3>文章二二标题</h3>
  <p>作者&nbsp发表时间</p>
@@ -42,7 +42,7 @@ ife小薇学院任务一的代码
  </ul>
 </div>
  
-<div>
+<div id="#text3">
  <h2>图片</h2>
  <p>好看的图片</p>
  <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
@@ -58,7 +58,7 @@ ife小薇学院任务一的代码
  <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
 </div>
 
-<div>
+<div id="#text4">
  <h2>文章三一级标题</h2>
  <h3>文章三二标题</h3>
  <p>作者&nbsp发表时间</p>

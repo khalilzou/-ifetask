@@ -16,7 +16,7 @@ ife小薇学院任务一的代码
   <li><a href="#text4">文章三</a></li>
  </ul>
 </div>
-<div id="#text1">
+<div id="text1">
  <h2>文章一一级标题</h2>
  <h3>文章一二标题</h3>
  <p>作者&nbsp发表时间</p>
@@ -27,7 +27,7 @@ ife小薇学院任务一的代码
  是谁记得当年<b>大闹天宫</b>还用说我喝醉犯了每个规条 从不会改过<a href="http://ife.baidu.com/">双眼里</a>只有自己有些恶意有些暴力有点着急惹了报应如来随指山下后现在我有一千年修炼别想破我的阵七十二变什么凡人或灵魂或妖孽</p>
 </div>
  
-<div id="#text2">
+<div id="text2">
  <h2>文章二一级标题</h2>
  <h3>文章二二标题</h3>
  <p>作者&nbsp发表时间</p>
@@ -42,7 +42,7 @@ ife小薇学院任务一的代码
  </ul>
 </div>
  
-<div id="#text3">
+<div id="text3">
  <h2>图片</h2>
  <p>好看的图片</p>
  <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
@@ -58,7 +58,7 @@ ife小薇学院任务一的代码
  <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
 </div>
 
-<div id="#text4">
+<div id="text4">
  <h2>文章三一级标题</h2>
  <h3>文章三二标题</h3>
  <p>作者&nbsp发表时间</p>
@@ -84,17 +84,17 @@ ife小薇学院任务一的代码
  <form>
   请输入邮箱地址：<input type="text" name="mail"><br/><br/>
   邮箱地址请按照要求格式输入<br/><br/>
-  请输入密码：<input type="password" name="psd">请重复输入密码：<input type="password" name="repsd"><br/><br/>
+  请输入密码：<input type="password" name="psd"><br/><br/>请重复输入密码：<input type="password" name="repsd"><br/><br/>
   密码请为6-16位英文数字<br/><br/>
-  性别：<input type="radio" name="sex" value="female">女<input type="radio" name="sex" value="male">男&nbsp城市：
+  性别：<input type="radio" name="sex" value="female">女<input type="radio" name="sex" value="male">男<br/><br/>城市：
   <select>
    <option value="chongqing">重庆</option>
    <option value="beijing" selected="selected">北京</option>
    <option value="shenzhen">深圳</option>
-  </select>
+  </select><br/><br/>
   爱好：<input type="checkbox" name="interest">运动
   <input type="checkbox" name="interest">艺术
-  <input type="checkbox" name="interest">科学
+  <input type="checkbox" name="interest">科学<br/><br/>
   个人描述：
   <textarea rows="2" cols="20">
 这是一个多行输入框，输入您的个人描述

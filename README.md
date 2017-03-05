@@ -3,7 +3,7 @@ ife小薇学院任务一的代码
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
 <title>ife小薇学院任务一</title>
 </head>
 <body>

@@ -3,9 +3,51 @@
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
 <title>ife小薇学院任务一</title>
+<style>
+ body {
+        margin:0;
+        padding:0;
+        width:100%;
+ }
+ .header {
+        background:url("");
+        position:relative;
+        background-color:black;
+        height:60px;
+      }
+ ul,.header {
+        margin:0;
+        padding:0;
+      } 
+ li {
+        float:right;
+        padding:6px;
+        margin:14px;
+        width:60px;
+        text-align: center;
+      }
+ a {
+        text-decoration:none;
+        color:#fff;
+      }
+ a:visited {
+      color:#D0D0D0;
+ }
+ .container {
+        background-color:#E0E0E0;
+        width:90%;
+      }
+ .article {
+        background-color:#fff;
+        width:95%;
+        margin:auto;
+        box-shadow:2px 2px 1px #A0A0A0;
+      }
+</style>
 </head>
 <body>
-<div><h1>网站一级标题<h1>
+<div class="container"> 
+<div class="header">
  <ul>
   <li><a href="#text1">文章一</a></li>
   <li><a href="#text2">文章二</a></li>
@@ -13,7 +55,7 @@
   <li><a href="#text4">文章三</a></li>
  </ul>
 </div>
-<div id="text1">
+<div id="text1" class="article">
  <h2>文章一一级标题</h2>
  <h3>文章一二标题</h3>
  <p>作者&nbsp发表时间</p>
@@ -24,7 +66,7 @@
  是谁记得当年<b>大闹天宫</b>还用说我喝醉犯了每个规条 从不会改过<a href="http://ife.baidu.com/">双眼里</a>只有自己有些恶意有些暴力有点着急惹了报应如来随指山下后现在我有一千年修炼别想破我的阵七十二变什么凡人或灵魂或妖孽</p>
 </div>
  
-<div id="text2">
+<div id="text2" class="article">
  <h2>文章二一级标题</h2>
  <h3>文章二二标题</h3>
  <p>作者&nbsp发表时间</p>
@@ -39,23 +81,23 @@
  </ul>
 </div>
  
-<div id="text3">
+<div id="text3" class="article">
  <h2>图片</h2>
- <p>好看的图片</p>
- <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
- <p>好看的图片</p>
- <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
- <p>好看的图片</p>
- <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
- <p>好看的图片</p>
- <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
- <p>好看的图片</p>
- <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
- <p>好看的图片</p>
- <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造">
+   <p>好看的图片<br/>
+    <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造"></p>
+   <p>好看的图片<br/>
+    <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造"></p>
+   <p>好看的图片<br/>
+    <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造"></p>
+   <p>好看的图片<br/>
+    <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造"></p>
+   <p>好看的图片<br/>
+    <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造"></p>
+   <p>好看的图片<br/>
+    <img src="https://a-ssl.duitang.com/uploads/item/201207/12/20120712122453_V33TY.thumb.700_0.jpeg" alt="铃屋什造" title="铃屋什造"></p>
 </div>
 
-<div id="text4">
+<div id="text4" class="article">
  <h2>文章三一级标题</h2>
  <h3>文章三二标题</h3>
  <p>作者&nbsp发表时间</p>
@@ -75,7 +117,7 @@
  </table>
 </div>
 
-<div>
+<div class="sidep">
  <h2>侧栏标题</h2>
  <h3>注册窗口</h3>
  <form>
@@ -99,6 +141,9 @@
   <input type="submit" value="确认提交"><br/><br/>
  </form>
 </div>
+</div>
+<div class="footer">
 版权所有&#169
+</div>
 </body>
 </html>

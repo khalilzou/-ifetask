@@ -3,10 +3,12 @@
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
 <title>ife小薇学院任务一</title>
+<link rel="stylesheet" type="text/css" href="mission5.css" >
 </head>
 <body>
-<div><h1>网站一级标题<h1></div>
-<div>
+ <div class="header">
+   <div><h1>网站一级标题<h1></div>
+   <div>
  <ul>
   <li><a href="#text1">文章一</a></li>
   <li><a href="#text2">文章二</a></li>
@@ -14,6 +16,8 @@
   <li><a href="#text4">文章三</a></li>
  </ul>
 </div>
+ </div>
+ 
 <div id="text1">
  <h2>文章一一级标题</h2>
  <h3>文章一二标题</h3>
@@ -76,15 +80,17 @@
  </table>
 </div>
 
-<div>
+<div class="sidebar">
  <h2>侧栏标题</h2>
  <h3>注册窗口</h3>
  <form>
   请输入邮箱地址：<input type="text" name="mail"><br/><br/>
   邮箱地址请按照要求格式输入<br/><br/>
-  请输入密码：<input type="password" name="psd">请重复输入密码：<input type="password" name="repsd"><br/><br/>
+  请输入密码：<input type="password" name="psd">
+  请重复输入密码：<input type="password" name="repsd"><br/><br/>
   密码请为6-16位英文数字<br/><br/>
-  性别：<input type="radio" name="sex" value="female">女<input type="radio" name="sex" value="male">男&nbsp城市：
+  性别：<input type="radio" name="sex" value="female">女<input type="radio" name="sex" value="male">男
+  城市：
   <select>
    <option value="chongqing">重庆</option>
    <option value="beijing" selected="selected">北京</option>
@@ -100,6 +106,9 @@
   <input type="submit" value="确认提交"><br/><br/>
  </form>
 </div>
+    
+<div class="footer">
 版权所有&#169
+ </div>
 </body>
 </html>

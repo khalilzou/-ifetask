@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="网站首页" content="新生活 新时代 新世界">
+  <title>公司网站首页</title>
+  <style>
+  body {                                      /*为什么没有实现头底宽度随浏览器窗口变化，和container居中*/
+  font-family: "黑体";
+  padding: 0;
+  margin: 0;
+  width:100%;
+}
+.header {
+  background:url("file:///E:/前端/ife任务代码/mission7/header.png") 60px 5px no-repeat;
+  min-width:1300px;
+  height: 60px;
+  line-height:60px;
+  color: #686868;
+}
+.header span {
+diplay:inline-block;
+margin:0 0 0 115px;
+font-size:20px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 30px 0 0;
+  float: right;
+}
+li {
+  float: right; 
+}
+li a {
+  text-decoration: none;
+  display: block;
+  width:80px;
+  margin: 0 15px; 
+}
+
+.container {
+  width: 1300px;
+  margin:auto;
+}
+.bgpic {
+  background: url("file:///E:/前端/ife任务代码/mission7/bigpicture.jpeg") no-repeat;
+  width:1300px;
+  height:663px;
+  color: #fff;
+  position: relative; 
+  display:table-cell;
+}
+.bgpic .word {
+  position:absolute;
+  left: 80px;
+  top:200px;
+  vertical-align:middle;
+}
+.word button {
+  background-color: #ff5151;
+  color:#fff;
+  font: 25px "黑体";
+  width: 330px;
+  height: 60px;
+  border: none;
+}
+.col1 p{
+  display: inline-block;
+  width: 300px;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing: border-box;
+  margin: 0px;
+  border-right: 2px solid #c0c0c0;
+  padding:0 50px 20px 50px;
+  text-align: center;
+}
+.col1 {
+margin:50px auto;
+}
+.col21 {
+      background-color: #eee;
+      height:300px;
+      font-size:52px;
+      color:#aaa;
+    }
+   .col21 td {
+     height:300px;
+     margin: auto;
+   }
+    .col21 table {
+      margin: auto;
+    }
+    .col22 {
+    background: url("file:///E:/前端/ife任务代码/mission7/col22.jpg") no-repeat;
+    width:1300px;
+    height:300px;
+    text-align: center;
+	color:#000;
+	padding:40px;
+    }
+    .col22 select {
+    width: 200px;
+    height: 35px;
+    color:#aaa;
+    border:none; 
+    margin: 20px;
+    }
+    .col22 button {
+      width: 200px;
+      height: 35px;
+      border: none;
+      background-color: #ff5151;
+      margin: 20px;
+      color: #fff;
+      font-weight: bold;
+    }
+	
+	 .col3 {
+    width: 1300px;
+    background-color: #efefef;
+	overflow:auto;
+    }
+    .img img {
+    border:1px solid #a0a0a0;
+    padding: 4px;
+    }
+    .col3 .img {
+    width: 190px;
+    float:left;
+	margin: 20px;
+    text-align: center;/*justify为啥不行*/
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+    }
+    .col3 .p1 {
+    font-size: 16px;
+    }
+    .col3 .p2 {
+    font-size: 14px;
+    color: #a0a0a0;
+    }
+	.imgwrap {
+	width:920px; /*必须要指定宽度吗，即使这个宽度其实是固定的，可根据计算得到*/
+	height:350px;
+	margin:100px auto;
+	}
+	
+	.col4 {
+    width: 1300px;
+    height: 527px;
+    padding: 0;
+    }
+    .col4 .left {
+    background:url("file:///e:/前端/ife任务代码/mission7/col4.jpg") no-repeat;
+    width:800px;
+    height: 527px;
+    float:left;
+    margin: 0;
+	color:#fff;
+text-align:center;
+    }
+    .col4 .right {
+    width: 450px;
+    height: 527px;
+    float:left;
+    margin: 0;
+    }
+.col4 .p1 {
+font-size:50px;
+}
+.col4 .p2 {
+font-size:170px;
+}
+.col4 .p3 {
+font-size:20px;
+}
+
+.col4 .right p {
+font-size:12px;
+color:#b0b0b0;
+line-height:25px;
+}
+.col4 .right button {
+border:1px solid #ff5151;
+background-color:#fff;
+color:#ff5151;
+text-align:center;
+padding:5px;
+width:80px;
+}
+.col4 td {
+height:527px;
+vertical-align:middle;
+text-align:center;
+padding:80px;
+  -webkit-box-sizing:border-box;
+      -moz-box-sizing:border-box;
+      box-sizing:border-box;
+}
+
+.col5 {
+height:480px;
+}
+.col5 .left {
+position:relative;
+background-color:#ff5151;
+color:#fff;
+font-size:20px;            /*用display:table-cell;vertical-align:middle;不能垂直居中因为float默认显示为块*/
+text-align:center;
+width:430px;
+height:480px;
+line-height:25px;
+float:left;
+}
+.newtime {
+position:absolute;
+top:180px;
+left:120px;
+}
+.col5 .left hr {
+width:25px;
+border:1px solid #fff;
+}
+.col5 .left button {
+width:150px;
+text-align:center;
+background-color:#ff5151;
+color:#fff;
+border:1px solid #fff;
+padding:5px;
+font-size:20px;
+}
+.col5 .middle {
+line-height:25px;
+font-size:20px;
+display:table-cell;
+vertical-align:middle;
+width:440px;
+margin-left:430px;
+margin-right:430px;
+text-align:center;
+height:480px;
+}
+.col5 .middle hr {
+width:25px;
+border:1px solid #a0a0a0;
+}
+.col5 .middle button {
+width:150px;
+text-align:center;
+background-color:#fff;
+color:#ff5151;
+border:1px solid #ff5151;
+padding:5px;
+font-size:20px;
+}
+.col5 .right {
+float:right;
+}
+.col6 {
+margin:150px auto;
+}
+.col6 .top {
+text-align:center;
+}
+.col6 .top span {
+font-size:14px;
+color:#c0c0c0;
+}
+.col6 .left {
+position:absolute;
+left:0;
+top:0;
+width:350px;
+text-align:left;
+}
+.col6 .left span {
+position:absolute;
+right:0;
+color:#c0c0c0;
+font-size:12px;
+}
+.col6 h4 {
+color:#808080;
+}
+.col6 .left p {
+font-size:10px;
+line-height:20px;
+color:#c0c0c0;
+}
+.col6 hr {
+width:30px;
+border:1px solid #ff5151;
+}
+.col6 .right {
+position:absolute;
+top:0;
+right:0;
+width:620px;
+}
+.col6 input,.col6 textarea {
+background-color:#f0f0f0;
+color:#808080;
+margin:10px;
+font-size:12px;
+border:none;
+padding:12px;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+}
+.col6 form {
+position:relative;
+width:660px;
+}
+.col6 input {
+width:300px;
+height:40px;
+}
+.col6 input1 {                 /*为什么右边和下面textarea始终不能对齐*/
+position:absolute;
+top:0;
+left:10px;
+}
+.col6 input2 {
+position:absolute;
+top:0;
+left:340px;
+}
+.col6 input3 {
+position:absolute;
+top:60px;
+left:10px;
+}
+.col6 input4 {
+position:absolute;
+top:60px;
+left:340px;
+}
+.col6 .submit {
+width:640px;
+height:40px;
+text-align:center;
+color:#000;
+font-size:14px;
+font-weight:bold;
+}
+.col6 textarea {
+width:640px;
+height:120px;
+}
+.col6 .wrap {
+width:1050px;
+height:330px;
+position:relative;
+margin:auto;
+}
+
+.footercol {
+min-width:1300px;
+color:#fff;
+background-color:#333;
+}
+.footercol td {                /*为什么周围始终有一圈白色*/
+height:400px;
+text-align:center;
+color:#fff;
+background-color:#333;
+min-width:1300px;
+}
+.footercol p{
+font-size:12px;
+}
+.footercol .input1 {
+width:400px;
+height:40px;
+background-color:#fff;
+color:#c0c0c0;
+font-size:10px;
+padding:12px;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+border:none;
+}
+.footercol .input2 {
+width:80px;
+height:40px;
+background-color:#c0c0c0;
+color:#fff;
+font-size:14px;
+font-weight:bold;
+padding:10px;
+text-align:center;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+border:none;
+}
+.footercol .bottom {
+background-color:#222;
+color:#fff;
+height:60px;
+font-size:12px;
+position:relative;
+}
+.footercol .bottom .span1 {
+position:absolute;
+left:100px;
+top:25px;
+}
+.footercol .bottom .span2 {
+position:absolute;
+top:25px;
+right:40px;
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    <span>新世界</span>
+    <ul>
+      <li><a href="#">登录</a></li>
+      <li><a href="#">最新活动</a></li>
+      <li><a href="#">关于我们</a></li>
+      <li><a href="#">爱心活动</a></li>
+      <li><a href="#">项目介绍</a></li>
+      <li><a href="#">首页</a></li>
+    </ul>
+  </div>
+  
+  
+  <div class="container">
+  <div class="bgpic">
+    <div class="word">
+      <span style="font-size:50px;font-weight:bold;">Time of new life</span><br/><br/>
+      <span style="font-size:20px;line-height:25px;">新时代，年轻的人们，让哦我们一起<br/>
+        体验新生活，享受新生活</span><br/><br/><br/>
+    <button type="button">开始体验</button>
+    </div>
+  </div>
+  
+    <div class="col1">
+      <p >打造全新世界观，让你更爱生活</p>
+      <p>丰富多彩的工艺活动，发挥新世界的主人公意识</p>
+      <p>时尚的新理念，超前体验未知生活</p>
+      <p style="border:none;">完善的培养机制，培养你全新的世界观</p>
+    </div>
+	
+    <div class="col2">
+      <div class="col21">
+        <table><tbody><tr><td>
+     <img src="file:///E:/前端/ife任务代码/mission7/header.png"/>
+      关于新世界，你不知道的还有什么?
+        </td></tr></tbody></table>
+      </div>
+      <div class="col22">
+        <h3>查找新世界城市活动信息</h3>
+        <hr style="border:1px solid #fff; width:30px;"/>
+        <h5>每个城市有不同的活动信息，请自主查询</h5>
+        <form>
+          <select>
+            <option>中国</option>
+          </select>
+          <select>
+            <option>省份</option>
+            <option>北京</option>
+            <option>天津</option>
+            <option>辽宁省</option>
+            <option>山西省</option>
+          </select>
+          <select>
+            <option>城市</option>
+            <option>北京</option>
+            <option>上海</option>
+          </select>
+          <button type="button">搜索</button>
+        </form> 
+      </div>
+    </div>
+	
+    <div class="col3">
+	 <div class="imgwrap">
+      <div class="img">
+        <img src="file:///E:/前端/ife任务代码/mission7/col3img.jpg">
+        <div><p class="p1">北京活动</p></div>
+          <p class="p2">新社区大联盟</p>
+      </div>
+      <div class="img">
+        <div><p class="p1">上海活动</p>
+          <p class="p2">新社区大联盟</p></div>
+        <img src="file:///E:/前端/ife任务代码/mission7/col3img.jpg">        
+      </div>
+      <div class="img">
+        <img src="file:///E:/前端/ife任务代码/mission7/col3img.jpg">
+        <div><p class="p1">深圳活动</p>
+          <p class="p2">新社区大联盟</p></div>
+      </div>
+      <div class="img">
+        <img src="file:///E:/前端/ife任务代码/mission7/col3img.jpg">
+        <div><p class="p1">香港活动</p>
+          <p class="p2">新社区大联盟</p></div>
+      </div>
+	 </div> 
+    </div>
+       <div class="col4">
+     <div class="left"><table><tr><td>
+      <span class="p1">新世界</span><br/>
+      <span class="p2">TIME</span><br/>
+      <span class="p3">@新世界-北京</span>
+      </td></tr></table></div>
+      <div class="right"><table><tr><td>
+        <h3>新世界/<span style="color:#ff5151">01</span></h3>
+        <p>新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世</p>
+        <button type="button">更多详情</button></td></tr></table>
+      </div>
+    </div>
+    <div class="col5">
+	  <div class="left"><div class="newtime">
+	    新时代<br>
+		关于爱生活的我们<hr/>
+		<button type="button">查看更多</button>
+	  </div></div>
+	  <div class="right">
+	    <img src="file:///E:/前端/ife任务代码/mission7/col5.jpeg" alt="img" />
+	  </div>
+	  <div class="middle">
+	    新时代<br>
+		关于爱生活的我们<hr/>
+		<button type="button">查看更多</button>
+		</div>
+	</div>
+    <div class="col6">
+	  <div class="top">
+	    <h3>成为我们的志愿者</h3><hr/>
+	    <span>新世界新世界新世界新世界新世界，新世界新世界新世界新世界<br/>
+		新世界，新世界新世界新世界新世界新世界</span>
+	  </div>
+	  <div class="wrap">
+	  <div class="left">
+	    <h5>新世界志愿者协议</h5>
+		<p>新世界志愿者协议新世界志愿者协议新世界志愿者协议新世界志愿者协议新世界志愿者协议新世界志愿者协议志愿者协议<br/><span>more</span></p><br/>		
+		<h5>新世界志愿者协议</h5>
+		<p>新世界志愿者协议新世界志愿者协议新世界志愿者协议,新世界志愿者协议新世界志愿者协议新世界志愿者协议<br/><span>more</span></p><br/>
+		<h5>更多条款</h5>
+		<span>more</span>
+	  </div>
+	  <div class="right">
+	    <form>
+		  <input class="input1" type="text" value="姓名："><input class="input2" type="text" value="年龄：" ><br/>
+		  <input class="input3" type="text" value="联系方式："><input class="input4" type="text" value="联系地址：">
+		  <textarea>请简单描述您梦想的生活：</textarea>
+		  <input class="submit" type="submit" value="提交申请">
+		</form>
+	  </div>
+	  </div>
+	</div>
+  </div>
+  <div class="footercol">
+  <table><tr><td>
+  <div class="top">   
+   <h2>联系我们</h2>
+	<p>联系我们联系我们联系我们联系我们联系我们,联系我们联系我们联系我们<br/>
+	系我们联系我们联系我们联系我们</p>
+	<form>
+	  <input  class="input1" type="text" value="someone@email.com"><input class="input2" type="submit" value="提交">
+	</form>
+   </div>
+  </table></tr></td>
+  <div class="bottom">
+   <span class="span1"> @2016新世界</span><span class="span2">Back to top</span>
+  </div>
+</div>
+</body>
+</html>

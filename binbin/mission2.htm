@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 02</title>
+  </head>
+<body onload="aqifunc()">
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list">
+    
+  </ul>
+<script type="text/javascript">
+var aqiData = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+
+function aqifunc() {
+ 
+  //选出aqiData中满足条件的数据，存放在sortDate中
+  
+    var sortDate = new Array();
+	var seq="";
+    for (var j=0, i=0;i<aqiData.length;i++) {
+        if(aqiData[i][1]>=60) {
+		    sortDate[j]=aqiData[i];
+			j++;
+			}
+   }
+   
+   //将sortDate中的数据按污染从大到小排序
+   
+    for (var q=0;q<sortDate.length-1;q++) {
+	    for(var p=q+1;p<sortDate.length;p++) {
+		    if (sortDate[q][1]<sortDate[p][1]) {
+			    var temp=sortDate[q];
+				sortDate[q]=sortDate[p];
+				sortDate[p]=temp;
+			}
+		}
+	} 
+	
+	//输出结果
+	
+	for(var m=0;m<sortDate.length;m++) {
+	    var n=m+1;
+	    seq+="<li>第"+n+"名："+sortDate[m][0]+","+sortDate[m][1]+"</li>";
+	}
+	document.getElementById("aqi-list").innerHTML=seq;
+};
+
+</script>
+</body>
+</html>

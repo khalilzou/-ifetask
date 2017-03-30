@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>IFE JavaScript Task 01</title>
+    <title>IFE JavaScript Task 03</title>
   </head>
 <body>
 
@@ -28,11 +28,6 @@
   <button id="sort-btn">排序</button>
 
 <script type="text/javascript">
-    var data = new Array();
-	var childList = new Array();
-	childList = document.getElementsByTagName("li");
-	var x = childList.length;
-	for (var m = 0;m < x;m++ ) data[m] = new Array();
 	
 /**
  * getData方法
@@ -40,17 +35,18 @@
  * 返回一个数组，格式见函数中示例
  */
 function getData() {
-    
-	
+    var data = [];
+	var childList = document.getElementsByTagName("li");
 	 //获取id为source的子元素列表
 	
-	for (var n = 0;n < x; n++) {
+	for (var n = 0;n < childList.length; n++) {
 	    
 	    var innertxt = childList[n].innerHTML;
-	    data[n][0] = innertxt.substr(0,2);
-		data[n][1] = innertxt.substr(-2,2);
+	    data[n] = [innertxt.substr(0,2), innertxt.substr(-6,2)];
+		
 	}  //用数组返回列表
 
+	return data;
   /*
   data = [
     ["北京", 90],
@@ -59,7 +55,7 @@ function getData() {
   ]
   */
 
-  return data;
+  
 
 }
 
@@ -69,9 +65,9 @@ function getData() {
  * 返回一个排序后的数组
  */
 function sortAqiData(data) {
-    for (var q=0;q<x-1;q++) {
-	    for(var p=q+1;p<x;p++) {
-		    if (data[q][1]<data[p][1]) {
+    for (var q = 0;q < data.length - 1;q++) {
+	    for(var p = q + 1;p < data.length;p++) {
+		    if (data[q][1] > data[p][1]) {
 			    var temp=data[q];
 				data[q]=data[p];
 				data[p]=temp;
@@ -86,17 +82,13 @@ function sortAqiData(data) {
  * 格式见ul中的注释的部分
  */
 function render(data) {
-    for (var i = 0;i < x;i++) {
-	    for (var j = 0;j < x;j++) {
-		    var nodetxt = childList[j].innerHTML;
-		    if (data[i][0] == nodetxt.substr(0,2)) {
-			    var renode = document.createElement("li");
-				var retext = document.createTextNode(nodetxt);
-				renode.appendChild(retext);
-				document.getElementById("resort").appendChild(renode);
-			}
-		}
-	}
+    var num = ["一","二","三","四","五","六","七"];
+	var ulnode = document.getElementById("resort");
+    for(var h = 0;h < data.length;h++) {    
+        var newNode = document.createElement("li");
+		ulnode.appendChild(newNode);
+        newNode.innerHTML = "第"+num[h]+"名："+data[h][0]+"空气质量：<b>"+data[h][1]+"</b>";    
+   }
 }
 
 function btnHandle() {
@@ -104,6 +96,7 @@ function btnHandle() {
   aqiData = sortAqiData(aqiData);
   render(aqiData);
 }
+
 
 function init() {
     document.getElementById("sort-btn").addEventListener("click",btnHandle);

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>mission5</title>  
+  <style>
+    .inputtxt {
+    	  text-align:center;
+    	} 	
+  
+    p button {
+    background-color:#f33;
+    border:none;
+    width:20px;
+    margin:2px;
+    }
+    
+    p {
+    	text-align:center;
+    	}
+  </style>
+</head>
+<body>
+ <div class="inputtxt">
+  <input type="text" id="txt" value="请输入10-100的数字">
+  <button type="button" id="leftin">左侧入</button>
+  <button type="button" id="rightin">右侧入</button>
+  <button type="button" id="leftout">左侧出</button>
+  <button type="button" id="rightout">右侧出</button>
+  <button type="button" id="sorting">排序</button>
+ </div>
+  <p id="displaytxt"></p>
+
+  <script>
+      var x;
+      function getText(){
+          x = document.getElementById("txt").value;         
+          return x;         
+      }
+      //获取input输入值
+
+      document.getElementById("leftin").onclick = function() {leftIn()};
+      document.getElementById("rightin").onclick = function() {rightIn()};
+      document.getElementById("leftout").onclick = function() {leftOut()};
+      document.getElementById("rightout").onclick = function() {rightOut()};
+      document.getElementById("sorting").onclick = function() {resort()};
+      function numcheck() {
+      	   var y = document.getElementById("displaytxt").childNodes;
+      	   if (y.length >= 60) {
+      	       alert ("输入数据已超过60个，不能再输入");
+      	       return false;
+      	   }
+      	   else 
+      	   	   return true;
+      	    
+      }
+      //检查输入数据是否超过60个
+      
+      function leftIn() {
+          x = getText();
+         // var z = numcheck();
+          if (numcheck()) {
+          if(isNaN(x)) {
+              alert("输入的不是数字，请输入数字");  
+          }
+          else if (x == "") alert("请输入数字"); 
+          else {
+          	  if (10 <= x && x <=100) {
+          	  var newnode = document.createElement("button");
+          	  //var newtxt = document.createTextNode(x);         	  
+          	  //newnode.appendChild(newtxt);
+          	  newnode.style.height = x+"px";   //用高度表示数字的大小
+          	  var firstnode = document.getElementById("displaytxt").firstChild;
+          	  document.getElementById("displaytxt").insertBefore(newnode,firstnode);
+          	  newnode.onclick = function() {removedata(newnode)};  //点击某元素即删除
+          	  
+          	  }
+          	  else {
+          	      alert("请输入10-100的数字");	
+          	  }
+            }
+          }
+          document.getElementById("txt").value = "";
+      }
+      //将input中输入的数字从左侧插入队列中
+
+      function rightIn() {
+          x = getText();
+          if (numcheck()) {
+          if (x == "") alert("请输入数字");
+          else if(!isNaN(x)) {
+          	  if (10 <= x && x <=100) {
+          	  var newnode = document.createElement("button");
+          	  //var newtxt = document.createTextNode(x);         	  
+          	  //newnode.appendChild(newtxt);  
+          	  newnode.style.height = x+"px";       	  
+          	  document.getElementById("displaytxt").appendChild(newnode);
+          	  newnode.onclick = function() {removedata(newnode)};  //点击某元素即删除
+              }
+              else {
+                  alert("请输入10-100的数字");
+              }
+          }
+          
+          else {
+          	  alert("输入的不是数字，请输入数字");  
+            }
+          }
+          document.getElementById("txt").value = "";
+      }
+      //将input中输入的数字从右侧插入队列中
+
+      function leftOut() {
+          var parent = document.getElementById("displaytxt");
+          var z = parent.firstChild.style.height;
+          var s = z.toString();
+          alert("删除："+s.slice(0,2));
+          parent.removeChild(parent.firstChild);                  
+      }
+      //读取并删除队列左侧第一个元素，并弹窗显示元素中数值
+
+      function rightOut() {
+          var parent = document.getElementById("displaytxt");
+          var z = parent.lastChild.style.height;
+          var s = z.toString();
+          alert("删除："+s.slice(0,2));
+          parent.removeChild(parent.lastChild); 
+      }
+      //读取并删除队列又侧第一个元素，并弹窗显示元素中数值；
+
+      function removedata(nodedata) {
+       	    nodedata.onclick = nodedata.parentNode.removeChild(nodedata);
+       	}
+      
+      //删除队列中被点击的元素
+      
+      function resort() {
+          var y = document.getElementById("displaytxt").childNodes;
+          for(var i = 0;i < y.length - 1;i++) {         	  
+          	  for (j = i + 1;j < y.length;j++) {
+          	      if (y[i].style.height < y[j].style.height) {         	      	
+          	          var temp = y[i].style.height;
+          	          y[i].style.height = y[j].style.height;
+          	          y[j].style.height = temp;
+          	      }
+          	  }
+          }
+          for(var m = 0;m < y.length;m++) {
+              y[m].style.height = y[m].height+"px";    
+          }
+      }
+
+      
+  </script>
+</body>
+</html>

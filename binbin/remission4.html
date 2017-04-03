@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>mission4</title>  
+  <style>
+    .inputtxt {
+    	  text-align:center;
+    	} 	
+  
+    p button {
+    background-color:red;
+    padding:10px;
+    color:white;
+    border:none;
+    margin:5px;
+    box-shadow:2px 3px 2px #980000;
+    }
+    
+    p {
+    	text-align:center;
+    	}
+  </style>
+</head>
+<body>
+ <div class="inputtxt">
+  <input type="text" id="txt">
+  <button type="button" id="leftin">左侧入</button>
+  <button type="button" id="rightin">右侧入</button>
+  <button type="button" id="leftout">左侧出</button>
+  <button type="button" id="rightout">右侧出</button>
+ </div>
+  <p id="displaytxt"></p>
+
+  <script>
+      var x,y = [];
+      function getText(){
+          x = document.getElementById("txt").value;         
+          return x;         
+      }
+      //获取input输入值
+
+      document.getElementById("leftin").onclick = function() {leftIn()};
+      document.getElementById("rightin").onclick = function() {rightIn()};
+      document.getElementById("leftout").onclick = function() {leftOut()};
+      document.getElementById("rightout").onclick = function() {rightOut()};
+
+      function leftIn() {
+          x = getText();
+          if(isNaN(x)) {
+              alert("输入的不是数字，请输入数字");  
+          }
+          else if (x == "") alert("请输入数字"); 
+          else {
+          	  var newnode = document.createElement("button");
+          	  var newtxt = document.createTextNode(x);         	  
+          	  newnode.appendChild(newtxt);
+          	  var firstnode = document.getElementById("displaytxt").firstChild;
+          	  document.getElementById("displaytxt").insertBefore(newnode,firstnode);
+          	  newnode.onclick = function() {removedata(newnode)};
+            }
+          document.getElementById("txt").value = "";
+      }
+      //将input中输入的数字从左侧插入队列中
+
+      function rightIn() {
+          x = getText();
+          if (x == "") alert("请输入数字");
+          else if(!isNaN(x)) {
+          	var newnode = document.createElement("button");
+          	  var newtxt = document.createTextNode(x);         	  
+          	  newnode.appendChild(newtxt);
+          	  
+          	  document.getElementById("displaytxt").appendChild(newnode);
+          	  newnode.onclick = function() {removedata(newnode)};
+              
+          }
+          
+          else {
+          	  alert("输入的不是数字，请输入数字");  
+            }
+          document.getElementById("txt").value = "";
+      }
+      //将input中输入的数字从右侧插入队列中
+
+      function leftOut() {
+          var parent = document.getElementById("displaytxt");
+          alert("删除："+parent.firstChild.innerHTML);
+          parent.removeChild(parent.firstChild);                  
+      }
+      //读取并删除队列左侧第一个元素，并弹窗显示元素中数值
+
+      function rightOut() {
+          var parent = document.getElementById("displaytxt");
+          alert("删除："+parent.lastChild.innerHTML);
+          parent.removeChild(parent.lastChild); 
+      }
+      //读取并删除队列又侧第一个元素，并弹窗显示元素中数值；
+
+      function removedata(nodedata) {
+       	    nodedata.onclick = nodedata.parentNode.removeChild(nodedata);
+       	}
+      
+      //删除队列中被点击的元素
+  </script>
+</body>
+</html>

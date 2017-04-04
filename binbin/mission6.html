@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>mission6</title>  
+  <style>
+    .inputtxt {
+    	  text-align:center;
+    	} 	
+  
+    p button {
+    background-color:red;
+    padding:10px;
+    color:white;
+    border:none;
+    margin:5px;
+    box-shadow:2px 3px 2px #980000;
+    }
+    
+    p {
+    	text-align:center;
+    	}
+  </style>
+</head>
+<body>
+ <div class="inputtxt">
+  <textarea id = "txt">请输入内容</textarea>
+  <button type="button" id="leftin">左侧入</button>
+  <button type="button" id="rightin">右侧入</button>
+  <button type="button" id="leftout">左侧出</button>
+  <button type="button" id="rightout">右侧出</button>
+  <br/><br/>
+  <input type = "text" id = "seartxt" value="请输入查询内容">
+  <button id="sear">点击查询</button>
+ </div>
+  <p id="displaytxt"></p>
+
+  <script>
+      var x;
+      function getText(){
+          x = document.getElementById("txt").value;         
+          return x;         
+      }
+      //获取input输入值
+
+      document.getElementById("leftin").onclick = function() {leftIn()};
+      document.getElementById("rightin").onclick = function() {rightIn()};
+      document.getElementById("leftout").onclick = function() {leftOut()};
+      document.getElementById("rightout").onclick = function() {rightOut()};
+      document.getElementById("sear").onclick = function() {matching()};
+
+      function leftIn() {
+          x = getText();
+          if (x == "") alert("请输入内容"); 
+          else {
+          	  var n1 = x.split(" ");  //按空格将字符串分为数组
+          	  var n2 = n1.toString().split(",");  //按逗号将字符串分为数组
+          	  var n3 = n2.toString().split("，");
+          	  var n4 = n3.toString().split("\n");  //按回车将字符串分为数组
+          	  var n5 = n4.toString().split("、");  //按顿号将字符串分为数组
+          	  var n6 = n5.toString().split(",");  //最后将字符串转化为数组
+          	  for(var i = 0;i < n6.length;i++) {
+          	      var newnode = document.createElement("button");
+          	      var newtxt = document.createTextNode(n6[i]);         	  
+          	      newnode.appendChild(newtxt);
+          	      var firstnode = document.getElementById("displaytxt").firstChild;
+          	      document.getElementById("displaytxt").insertBefore(newnode,firstnode);
+          	      newnode.onclick = function() {newnode.parentNode.removeChild(this)};
+          	  }
+          }
+          //document.getElementById("txt").value = " ";
+      }
+      //将input中输入的数字从左侧插入队列中
+
+      function rightIn() {
+          x = getText();
+          if (x == "") alert("请输入内容");
+          else {
+          	  var n1 = x.split(" ");  //按空格将字符串分为数组
+          	  var n2 = n1.toString().split(",");  //按逗号将字符串分为数组
+          	  var n3 = n2.toString().split("，");
+          	  var n4 = n3.toString().split("\n");  //按回车将字符串分为数组
+          	  var n5 = n4.toString().split("、");  //按顿号将字符串分为数组
+          	  var n6 = n5.toString().split(",");  //最后将字符串转化为数组
+          	  for(var i = 0;i < n6.length;i++) {
+          	      var newnode = document.createElement("button");
+          	      var newtxt = document.createTextNode(n6[i]);          	  
+          	      newnode.appendChild(newtxt);
+          	      document.getElementById("displaytxt").appendChild(newnode);
+          	      newnode.onclick = function() {newnode.parentNode.removeChild(this)};
+          	     // newnode.onclick = function() {removedata(newnode)};
+              }
+          }
+          //document.getElementById("txt").value = " ";
+      }
+      //将input中输入的数字从右侧插入队列中
+
+      function leftOut() {
+          var parent = document.getElementById("displaytxt");
+          alert("删除："+parent.firstChild.innerHTML);
+          parent.removeChild(parent.firstChild);                  
+      }
+      //读取并删除队列左侧第一个元素，并弹窗显示元素中数值
+
+      function rightOut() {
+          var parent = document.getElementById("displaytxt");
+          alert("删除："+parent.lastChild.innerHTML);
+          parent.removeChild(parent.lastChild); 
+      }
+      //读取并删除队列又侧第一个元素，并弹窗显示元素中数值；
+      
+      function matching() {
+          var txt = document.getElementById("seartxt").value;	//获取想查询的字符串
+          var r = new Array(),j = 0;
+          if (txt == "") alert("请输入想查询的内容");
+          else {
+          	  var childlist = document.getElementById("displaytxt").childNodes;
+              for(var i = 0;i < childlist.length;i++) {
+                  var t = childlist[i].innerHTML.search(txt);
+                  childlist[i].style.backgroundColor = "red";
+                  if (t != -1) {
+                      r[j] = i;
+                      j++;
+                  }
+              }	 //查询包含所查询字符串的节点
+              if (r.length === 0) alert ("没有匹配的字符串");
+              else {
+                  for (var z = 0;z < r.length; z++) {
+                  var w = r[z];
+                  childlist[w].style.backgroundColor = "black"	;
+                  }  //将包含所查询字符串的节点标记
+              }
+          }
+      }
+
+      
+  </script>
+</body>
+</html>

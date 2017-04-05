@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>mission7</title>
+  <style>
+      
+      #container {
+          width:500px;
+          height:80px;  
+          display:flex;
+          display:-webkit-flex; 
+          border:1px solid #b33;
+          margin:auto;
+      }
+   
+      .second {
+          display:flex;
+          display:-webkit-flex;  
+          flex:1;	
+          -webkit-flex:1; 
+          margin:5px;	
+          border:1px solid #33e;
+      }
+      
+     .third {
+      	  display:flex;
+          display:-webkit-flex; 
+          flex:1;	
+          -webkit-flex:1;
+          margin:5px;
+          border:1px solid #4a4;
+     	}
+     	
+     	.fourth {
+     	    width:40px;
+     	    height:20px;
+     	    margin:auto;
+     	    border:1px solid #a0a0a0;
+     	}
+
+      .btn {
+          width:500px;
+          margin:auto;
+          text-align:center;
+      }
+  </style>
+</head>
+
+<body>
+  <div id="container">  
+      <div class="second s1">     
+          <div class="third t1">      
+              <div class="fourth f1">
+              </div>        
+              <div class="fourth f2">
+              </div>        
+          </div>
+          <div class="third t2">
+              <div class="fourth f3">
+              </div>        
+              <div class="fourth f4">
+              </div>       
+          </div>       
+      </div>  
+        
+      <div class="second s2">
+      	
+          <div class="third t3">      
+              <div class="fourth f5">
+              </div>        
+              <div class="fourth f6">
+              </div>       
+          </div>
+          <div class="third t4">
+              <div class="fourth f7">
+              </div>        
+              <div class="fourth f8">
+              </div>       
+          </div>
+      </div>   
+  </div>
+  <p class="btn">
+      <button type="button" id="btnpre">先序遍历</button>
+      <button type="button" id="btnin">中序遍历</button>
+      <button type="button" id="btnp">后序遍历</button>
+  </p>
+  <script>
+  	  var root = document.getElementById("container");
+  	  var j = 0;
+      document.getElementById("btnpre").onclick = function() {preOrder(root)};
+      document.getElementById("btnin").onclick = function() {inOrder(root)};
+      document.getElementById("btnp").onclick = function() {postOrder(root)};	
+      
+      function preOrder(x) {
+      	  var nodes = document.getElementsByTagName("div");
+      	  for(var i = 0;i < nodes.length;i++) nodes[i].style.border = "1px solid #a0a0a0";  //恢复遍历后的边框样式
+      	  if(x != null) {
+              x.style.border = "3px solid red";  //将遍历到的元素边框改变样式
+              var y = x.getElementsByTagName("div");
+              setTimeout(function () {preOrder(y[0])},1000);
+              setTimeout(function () {preOrder(y[1])},1000); //递归遍历二叉树
+          }  
+      }  //先序遍历
+      
+      function inOrder(x) {
+      	  var nodes = document.getElementsByTagName("div");
+      	  for(var i = 0;i < nodes.length;i++) nodes[i].style.border = "1px solid #a0a0a0";  //恢复遍历后的边框样式
+      	  if(x != null) {
+              var y = x.getElementsByTagName("div");      	  	
+      	    	setTimeout(function () {inOrder(y[0])},1000);
+              x.style.border = "3px solid red";  //将遍历到的元素边框改变样式
+              setTimeout(function () {inOrder(y[1])},1000); //递归遍历二叉树
+          }  
+      } 
+      
+      function postOrder(x) {
+      	  var nodes = document.getElementsByTagName("div");
+      	  for(var i = 0;i < nodes.length;i++) nodes[i].style.border = "1px solid #a0a0a0";  //恢复遍历后的边框样式
+      	  if(x != null) {              
+              var y = x.getElementsByTagName("div");
+              setTimeout(function () {postOrder(y[0])},1000);
+              setTimeout(function () {postOrder(y[1])},1000); //递归遍历二叉树
+              x.style.border = "3px solid red";  //将遍历到的元素边框改变样式
+          }  
+      } 
+  </script>
+</body>
+</html>

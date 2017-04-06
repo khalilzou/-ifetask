@@ -92,32 +92,47 @@
       document.getElementById("btnin").onclick = function() {inOrder(root)};
       document.getElementById("btnp").onclick = function() {postOrder(root)};	
       
-      function preOrder(x) {      	  
+    function preOrder(x) {
+          storenode = [];//清空数组
+          preOrdered(x);
+          coloring();
+      }
+      
+      function inOrder(x) {
+          storenode = [];//清空数组
+          inOrdered(x);
+          coloring();
+      }
+      
+      function postOrder(x) {
+          storenode = [];//清空数组
+          postOrdered(x);
+          coloring();
+      }
+    
+      function preOrdered(x) {      	  
       	  if(x != null) {
               storenode.push(x); 
-              preOrder(x.firstElementChild);
-              preOrder(x.lastElementChild); 
+              preOrdered(x.firstElementChild);
+              preOrdered(x.lastElementChild); 
           }  //按照先序遍历将节点放进数组
-          coloring();
       }  //先序遍历
       
      
-      function inOrder(x) {
+      function inOrdered(x) {
           if(x != null) {                
-              inOrder(x.firstElementChild);
+              inOrdered(x.firstElementChild);
               storenode.push(x);
-              inOrder(x.lastElementChild); 
-          }  //按照中序遍历将节点放进数组
-          coloring();  
+              inOrdered(x.lastElementChild); 
+          }  //按照中序遍历将节点放进数组 
       } 
       
-      function postOrder(x) {
+      function postOrdered(x) {
       	 if(x != null) {
-              postOrder(x.firstElementChild);
-              postOrder(x.lastElementChild); 
+              postOrdered(x.firstElementChild);
+              postOrdered(x.lastElementChild); 
               storenode.push(x);
-          }  //按照后序遍历将节点放进数组
-          coloring();  
+          }  //按照后序遍历将节点放进数组 
       } 
       
        function coloring() {

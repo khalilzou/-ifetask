@@ -87,43 +87,54 @@
   </p>
   <script>
   	  var root = document.getElementById("container");
-  	  var j = 0;
+  	  var storenode = [];
       document.getElementById("btnpre").onclick = function() {preOrder(root)};
       document.getElementById("btnin").onclick = function() {inOrder(root)};
       document.getElementById("btnp").onclick = function() {postOrder(root)};	
       
-      function preOrder(x) {
-      	  var nodes = document.getElementsByTagName("div");
-      	  for(var i = 0;i < nodes.length;i++) nodes[i].style.border = "1px solid #a0a0a0";  //恢复遍历后的边框样式
+      function preOrder(x) {      	  
       	  if(x != null) {
-              x.style.border = "3px solid red";  //将遍历到的元素边框改变样式
-              var y = x.getElementsByTagName("div");
-              setTimeout(function () {preOrder(y[0])},1000);
-              setTimeout(function () {preOrder(y[1])},1000); //递归遍历二叉树
-          }  
+              storenode.push(x); 
+              preOrder(x.firstElementChild);
+              preOrder(x.lastElementChild); 
+          }  //按照先序遍历将节点放进数组
+          coloring();
       }  //先序遍历
       
+     
       function inOrder(x) {
-      	  var nodes = document.getElementsByTagName("div");
-      	  for(var i = 0;i < nodes.length;i++) nodes[i].style.border = "1px solid #a0a0a0";  //恢复遍历后的边框样式
-      	  if(x != null) {
-              var y = x.getElementsByTagName("div");      	  	
-      	    	setTimeout(function () {inOrder(y[0])},1000);
-              x.style.border = "3px solid red";  //将遍历到的元素边框改变样式
-              setTimeout(function () {inOrder(y[1])},1000); //递归遍历二叉树
-          }  
+          if(x != null) {                
+              inOrder(x.firstElementChild);
+              storenode.push(x);
+              inOrder(x.lastElementChild); 
+          }  //按照中序遍历将节点放进数组
+          coloring();  
       } 
       
       function postOrder(x) {
-      	  var nodes = document.getElementsByTagName("div");
-      	  for(var i = 0;i < nodes.length;i++) nodes[i].style.border = "1px solid #a0a0a0";  //恢复遍历后的边框样式
-      	  if(x != null) {              
-              var y = x.getElementsByTagName("div");
-              setTimeout(function () {postOrder(y[0])},1000);
-              setTimeout(function () {postOrder(y[1])},1000); //递归遍历二叉树
-              x.style.border = "3px solid red";  //将遍历到的元素边框改变样式
-          }  
+      	 if(x != null) {
+              postOrder(x.firstElementChild);
+              postOrder(x.lastElementChild); 
+              storenode.push(x);
+          }  //按照后序遍历将节点放进数组
+          coloring();  
       } 
+      
+       function coloring() {
+      	  var i = 0;
+      	  var t = setInterval(function() {
+              if (i == storenode.length) {
+              	  storenode[i-1].style.border = "1px solid #a0a0a0";
+              	  clearInterval(t); 	
+      	  	  }
+      	  	  else if (i > storenode.length) clearInterval(t);
+      	  	  else {
+      	  	  	  if ( i != 0) {storenode[i-1].style.border = "1px solid #a0a0a0";}
+      	      storenode[i].style.border = "3px solid red";
+      	      i++;      	            
+      	  }
+      	},1000);
+      }  //按照遍历得到的数组的顺序，改变节点边框，以表示遍历到的节点
   </script>
 </body>
 </html>

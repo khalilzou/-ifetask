@@ -14,6 +14,8 @@ div {
   display:-webkit-flex;	
   flex-direction:row;
   -webkit-flex-direction:row;
+  justify-content:space-around;
+  -webkit-justify-content:space-around;
 }
 
 .layer1,.layer2,.layer3 {

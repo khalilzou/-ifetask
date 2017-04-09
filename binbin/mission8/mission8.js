@@ -81,21 +81,25 @@ function getTxt() {
 }//获取输入内容
 
 function seek() {
-	  var txt = getTxt();//获取输入框输入的内容
-	  var tag = 0;
+    var divlist = document.getElementsByTagName("div");
+    for( var i = 0;i < divlist.length;i++) {
+        divlist[i].style.backgroundColor = "white";
+    }//清除背景颜色样式
+    var txt = getTxt();//获取输入框输入的内容
+    var tag = 0;
     nodes[0].style.backgroundColor = "blue";
-    if(nodes[0].childNodes[0].nodeValue == txt) {
+    if(nodes[0].firstChild.nodeValue.indexOf(txt) != -1) {
         nodes[0].style.backgroundColor = "red";
         tag = 1;//表示有找到内容相符的元素,	且将符合的元素标红
     }
-	  var gone = nodes.shift();
+    var gone = nodes.shift();
     var s = setInterval(function() {
     var t = nodes.length;   
     if(gone.style.backgroundColor != "red") {   
     gone.style.backgroundColor = "white";
     }//如果不是所找的元素，背景颜色恢复为白色
     nodes[0].style.backgroundColor = "blue";
-    if(nodes[0].childNodes[0].nodeValue == txt) { 
+    if(nodes[0].firstChild.nodeValue.indexOf(txt) != -1) { 
         nodes[0].style.backgroundColor = "red";
         tag = 1;
     } //如果内容相同，则把相同的元素标红

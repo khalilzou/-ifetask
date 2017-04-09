@@ -97,13 +97,15 @@ function seek() {
     nodes[0].style.backgroundColor = "blue";
     if(nodes[0].childNodes[0].nodeValue == txt) { 
         nodes[0].style.backgroundColor = "red";
-        var tag = 1;
+        tag = 1;
     } //如果内容相同，则把相同的元素标红
     gone = nodes.shift();
     if(t == 1) {
     	  clearInterval(s);	
     	  setTimeout(function() {
+    	  	  if(gone.style.backgroundColor != "red") {
     	  	  gone.style.backgroundColor = "white";
+    	  	  }
     	  	  if(tag == 0) {
     	  	  alert("没有找到匹配内容");
     	  	  }

@@ -1,0 +1,35 @@
+div {
+  border:2px solid #b0b0b0;	
+  text-align:center;
+  padding-top:6px;
+  padding-bottom:6px;
+  font-size:10px;
+  color:#404040;
+  background-color:white;
+}
+#root {
+  width:800px;
+  height:80px;
+  display:flex;
+  display:-webkit-flex;	
+  flex-direction:row;
+  -webkit-flex-direction:row;
+  justify-content:space-around;
+  -webkit-justify-content:space-around;
+}
+
+.layer1,.layer2,.layer3 {
+	display:flex;
+	display:-webkit-flex;
+	flex-direction:row;
+	-webkit-flex-direction:row;
+	margin-right:1px;
+}
+
+#fish {
+  width:100px;
+}
+
+p {
+  text-align:center;	
+}

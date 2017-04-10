@@ -142,7 +142,13 @@ function choosed() {
     preorder(root);
     for(var i = 0;i < nodes.length;i++) {
         nodes[i].onclick = function() {
-        	  stopBubble(this);//阻止冒泡
+	    nodes = [];
+            preorder(root);
+            for(var j = 0;j < nodes.length;j++) {
+        	 nodes[j].style.backgroundColor = "#fff";
+        	 nodes[j].style.boxShadow = "0 0 0 #fff";
+            }   //保证一次只能选中一个元素  
+            stopBubble(this);//阻止冒泡
             this.style.backgroundColor = "#808080";	
             this.style.boxShadow = "2px 2px 2px #a0a0a0 inset";
         };	

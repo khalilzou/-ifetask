@@ -6,6 +6,7 @@
 	span {
 	  color:#c0c0c0;	
 	  display:block;
+
 	  margin-top:10px;
 	}
 body {
@@ -14,7 +15,7 @@ body {
 </style>
 </head>
 <body>
-  <form method="get" id="valform" onsubmit="return validateForm(this)" action="">
+	<form method="get" id="valform" onsubmit="return validateForm(this)">
 		名称
 		<input type="text" size="30" name="fname" id="input">
 		<input type="submit" id="validatebtn" value="验证"><br/>
@@ -22,19 +23,21 @@ body {
   </form>
   
   <script>
-      var alertele = document.getElementById("alerttxt");  
-      var input = document.getElementById("input");   
+  	  var alertele = document.getElementById("alerttxt");  
+  	  var input = document.getElementById("input");
       function validateForm(thisForm) {
+          
               if(validateValue(input) == false)	{
                   return false;	
               }
               else
               	  return true;
-          	
+          
       }
       
       function validateValue (field) {
       	  var len = getlen();
+          
               if(input.value == null || input.value == "") {
                   alertele.innerHTML = "姓名不能为空";
                   alertele.style.color = "#f00";
@@ -70,3 +73,5 @@ body {
       }
   </script>
 </body>
+
+

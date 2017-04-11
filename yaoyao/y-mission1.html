@@ -6,7 +6,6 @@
 	span {
 	  color:#c0c0c0;	
 	  display:block;
-
 	  margin-top:10px;
 	}
 body {
@@ -15,7 +14,7 @@ body {
 </style>
 </head>
 <body>
-	<form action="y-mission1.html" method="post" id="valform" onsubmit="return validateForm(this)">
+  <form method="post" id="valform" onsubmit="return validateForm(this)">
 		名称
 		<input type="text" size="30" name="fname" id="input">
 		<input type="submit" id="validatebtn" value="验证"><br/>
@@ -23,7 +22,7 @@ body {
   </form>
   
   <script>
-  	  var alertele = document.getElementById("alerttxt");  
+      var alertele = document.getElementById("alerttxt");  
   	   
       function validateForm(thisForm) {
           with(thisForm) {

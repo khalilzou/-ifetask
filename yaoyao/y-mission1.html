@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>yaoyaomission1</title>
+<style>
+	span {
+	  color:#c0c0c0;	
+	  display:block;
+
+	  margin-top:10px;
+	}
+body {
+  text-align:center;	
+}
+</style>
+</head>
+<body>
+	<form action="y-mission1.html" method="post" id="valform" onsubmit="return validateForm(this)">
+		名称
+		<input type="text" size="30" name="fname" id="input">
+		<input type="submit" id="validatebtn" value="验证"><br/>
+		<span id="alerttxt">必填，长度为4～16个字符</span>
+  </form>
+  
+  <script>
+  	  var alertele = document.getElementById("alerttxt");  
+  	   
+      function validateForm(thisForm) {
+          with(thisForm) {
+              if(validateValue(fname) == false)	{
+                  fname.focus();
+                  return false;	
+              }
+              else
+              	  return true;
+          }	
+      }
+      
+      function validateValue (field) {
+      	  var len = getlen();
+          with(field) {
+              if(value == null || value == "") {
+                  alertele.innerHTML = "姓名不能为空";
+                  alertele.style.color = "#f00";
+              	  document.getElementsByTagName("input")[0].style.border = "1px solid #f00";
+                  return false;
+              }	
+              else if(len < 4 || len > 16) {
+              	  alertele.innerHTML = "请输入长度控制在4～16个字符";
+                  alertele.style.color = "#f00";
+              	  document.getElementsByTagName("input")[0].style.border = "1px solid #f00";
+                  return false;
+              }
+              else {
+              	  alertele.innerHTML = "名称格式正确";
+              	  alertele.style.color = "#0f0";
+              	  document.getElementsByTagName("input")[0].style.border = "1px solid #0f0";
+              	  return false;
+              }
+          }	
+      }
+      function getlen() {
+          //获取字符串长度（汉字算两个字符，字母数字算一个）
+          var len = 0;
+          var arr = document.getElementById("input").value;
+          for(var i = 0;i < arr.length;i++) {
+              if(arr[i].match(/[^\x00-\xff]/gi) != null) {
+                  len +=2;	
+              }
+              else
+              	  len +=1;
+          }
+          return len;  
+      }
+  </script>
+</body>

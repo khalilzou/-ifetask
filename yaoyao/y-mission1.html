@@ -23,39 +23,37 @@ body {
   
   <script>
       var alertele = document.getElementById("alerttxt");  
-  	   
+      var input = document.getElementById("input");   
       function validateForm(thisForm) {
-          with(thisForm) {
-              if(validateValue(fname) == false)	{
+              if(validateValue(input) == false)	{
                   return false;	
               }
               else
               	  return true;
-          }	
+          	
       }
       
       function validateValue (field) {
       	  var len = getlen();
-          with(field) {
-              if(value == null || value == "") {
+              if(input.value == null || input.value == "") {
                   alertele.innerHTML = "姓名不能为空";
                   alertele.style.color = "#f00";
-              	  document.getElementsByTagName("input")[0].style.border = "1px solid #f00";
+              	  input.style.border = "1px solid #f00";
                   return false;
               }	
               else if(len < 4 || len > 16) {
               	  alertele.innerHTML = "请输入长度控制在4～16个字符";
                   alertele.style.color = "#f00";
-              	  document.getElementsByTagName("input")[0].style.border = "1px solid #f00";
+              	  input.style.border = "1px solid #f00";
                   return false;
               }
               else {
               	  alertele.innerHTML = "名称格式正确";
               	  alertele.style.color = "#0f0";
-              	  document.getElementsByTagName("input")[0].style.border = "1px solid #0f0";
+              	  input.style.border = "1px solid #0f0";
               	  return false;
               }
-          }	
+          	
       }
       function getlen() {
           //获取字符串长度（汉字算两个字符，字母数字算一个）

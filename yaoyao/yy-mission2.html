@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>yy-mission2</title>
+<style>
+	p {
+	  font-size:small;	
+	}
+</style>
+</head>
+<body>
+  <form method="post" action="" onsubmit="return checkall()">
+  名称 <input type="text" id="fname" onblur="onblurEvent(this)" onfocus="onfocusEvent(this)" size="60"><br/>
+  <p id="fnametip"></p>
+  密码 <input type="password" id="psd" onblur="onblurEvent(this)" onfocus="onfocusEvent(this)" size="60"><br/>
+  <p id="psdtip"></p>
+  密码确认 <input type="password" id="checkpsd" onblur="onblurEvent(this)" onfocus="onfocusEvent(this)" size="60"><br/>
+  <p id="checkpsdtip"></p>
+  邮箱 <input type="text" id="email" onblur="onblurEvent(this)" onfocus="onfocusEvent(this)" size="60"><br/>
+  <p id="emailtip"></p>
+  手机 <input type="text" id="phone" onblur="onblurEvent(this)" onfocus="onfocusEvent(this)" size="60">
+  <p id="phonetip"></p>
+  <input type="submit" value="提交" id="sub">
+  </form>
+  
+  <script>
+  	  var fnameTip = document.getElementById("fnametip");
+  	  var psdTip = document.getElementById("psdtip");
+  	  var checkTip = document.getElementById("checkpsdtip");
+  	  var emailTip = document.getElementById("emailtip");
+  	  var phoneTip = document.getElementById("phonetip");
+  	  
+      function onfocusEvent(thisBtn) {
+      	  //当元素获得焦点时执行
+      	  switch (thisBtn.id) {
+      	      case "fname" :	
+      	          fnameTip.innerHTML = "必填，长度为4～16个字符";
+      	          fnameTip.style.color = "lightgray";
+      	          break;
+      	      case "psd" :	
+      	          psdTip.innerHTML = "必填，请输入密码";
+      	          psdTip.style.color = "lightgray";
+      	          break;
+      	      case "checkpsd" :	
+      	          checkTip.innerHTML = "再次输入相同密码";
+      	          checkTip.style.color = "lightgray";
+      	          break;
+      	      case "email" :	
+      	          emailTip.innerHTML = "必填，请输入邮箱";
+      	          emailTip.style.color = "lightgray";
+      	          break;
+      	      case "phone" :	
+      	          phoneTip.innerHTML = "必填，请输入电话号码";
+      	          phoneTip.style.color = "lightgray";
+      	          break;
+      	  }
+      }	
+     
+      function onblurEvent(thisBtn) {
+      	  //当元素失去焦点时执行
+      	  switch (thisBtn.id) {
+      	      case "fname" :	
+      	          validateFname();
+      	          break;
+      	      case "psd" :	
+      	          validatePsd();
+      	          break;
+      	      case "checkpsd" :	
+      	          validateCheck();
+      	          break;
+      	      case "email" :	
+      	          validateEmail();
+      	          break;
+      	      case "phone" :	
+      	          validatePhone();
+      	          break;
+      	  }
+      }
+      
+      function validateFname() {
+          var fnameValue = document.getElementById("fname").value;          
+          var len = fnameValue.replace(/[^\x00-\xff]/g,"aa").length;
+          //计算输入名称的字符串长度，双字节字符长度为2，ASCII字符为1
+          if (fnameValue == null || fnameValue == "") {
+              fnameTip.innerHTML = "名称不能为空";	
+              fnameTip.style.color = "red";
+              fname.style.border = "1px solid red";
+              return false;
+          }	
+          else if (len < 4 || len > 16) {
+              fnameTip.innerHTML = "请控制长度为4～16个字符";
+              fnameTip.style.color = "red";
+              fname.style.border = "1px solid red";	
+              return false;
+          }
+          
+          else {
+              fnameTip.innerHTML = "名称可用";
+              fnameTip.style.color = "green";
+              fname.style.border = "1px solid green";	
+              return true;
+          }          	  
+      }
+      
+      function validatePsd() {
+          var psdValue = document.getElementById("psd").value;
+          if (psdValue == null || psdValue == "") {
+              psdTip.innerHTML = "密码不能为空";	
+              psdTip.style.color = "red";
+              psd.style.border = "1px solid red";
+              return false;
+          }	
+          else {
+              psdTip.innerHTML = "密码可用";
+              psdTip.style.color = "green";
+              psd.style.border = "1px solid green";	
+              return true;
+          }
+          	  
+      }
+      
+      function validateCheck () {
+          var psdValue = document.getElementById("psd").value;
+          var checkValue = document.getElementById("checkpsd").value;	
+          if (checkValue == null || checkValue == "") {
+              checkTip.innerHTML = "输入不能为空";	
+              checkTip.style.color = "red";
+              checkpsd.style.border = "1px solid red";
+              return false;
+          } 
+          else if (psdValue !== checkValue) {
+          	  checkTip.innerHTML = "输入不一致";	
+              checkTip.style.color = "red";
+              checkpsd.style.border = "1px solid red";
+              return false;
+          }
+          else if (psdValue == checkValue) {
+          	  checkTip.innerHTML = "密码输入一致";
+              checkTip.style.color = "green";
+              checkpsd.style.border = "1px solid green";
+              return true;
+          }
+      }
+      
+      function validateEmail() {
+      	  var emailValue = document.getElementById("email").value;	
+      	  var pos = emailValue.indexOf("@");
+      	  var dotpos = emailValue.indexOf(".");
+          if (emailValue == null || emailValue == "") {
+              emailTip.innerHTML = "输入不能为空";	
+              emailTip.style.color = "red";
+              email.style.border = "1px solid red";
+              return false;
+          } 
+          else if (pos < 1 || dotpos - pos < 2 || dotpos + 2 > emailValue.length) {
+          	  //验证邮箱是否包含“@”和“.”，且@不在第一个位置.在@后面且不在最后
+          	  emailTip.innerHTML = "邮箱格式错误";	
+              emailTip.style.color = "red";
+              email.style.border = "1px solid red";
+              return false;
+          }
+          else {
+          	  emailTip.innerHTML = "邮箱可用";
+              emailTip.style.color = "green";
+              email.style.border = "1px solid green";
+              return true;
+          }
+      }
+      
+      function validatePhone () {
+          var phoneValue = document.getElementById("phone").value;
+          if (phoneValue == null || phoneValue == "") {
+              phoneTip.innerHTML = "输入不能为空";	
+              phoneTip.style.color = "red";
+              phone.style.border = "1px solid red";
+              return false;
+          } 
+          else if (phoneValue.length !== 11 || phoneValue.match(/[^0-9]/) != null) {
+          	  //检测输入长度是否为11位，或者输入是否有非数字
+          	  phoneTip.innerHTML = "手机格式不正确";	
+              phoneTip.style.color = "red";
+              phone.style.border = "1px solid red";
+              return false;
+          }
+          else {
+          	  phoneTip.innerHTML = "手机格式正确";
+              phoneTip.style.color = "green";
+              phone.style.border = "1px solid green";
+              return true;
+          }
+      }
+      
+      function checkall() {
+      	  //检测所有输入框是否正确
+      	  var flag;
+          flag = Number(validateFname()) + Number(validatePsd()) + Number( validateCheck()) +
+          Number(validateEmail()) + Number(validatePhone ());
+          if (flag != 5) {
+              alert("提交失败");	
+              return false;
+          }
+          else {
+          	  alert("提交成功");
+          	  return true;
+          }
+      }
+  </script>
+</body>
